@@ -43,10 +43,10 @@
 - TA03: Load CSV file as text to look for variation (complete)
 - TA04: Add Date Parsing while loading CSV File
 - TA05: Create initial express server with node
-- TA06: Add database functionality with unit tests
-- TA07: Add Service Layer to abstract data access with unit tests
-- TA08: Add Controllers calling Service Layer with unit tests
-- TA09: Wire together routes for express endpoints to point to controllers
+- TA06: Add database functionality with tests
+- TA07: Add Service Layer for data access with tests
+- TA08: Add Controllers with tests
+- TA09: Wire together routes and controllers
 - TA10: Add CORS support for Endpoints
 - TA12: Create Skeleton React Project
 - TA13: Adding Routing with empty pages
@@ -55,7 +55,7 @@
 - TA16: Add links to edit article from datatable
 - TA17: Add edit article component
 - TA18: Add add article component
-- TA19: Add Simple token validation in Header for Endpoints
+- TA19: Add Simple token validation for Endpoints
 - TA20: Add Simple token to React side
 - TA21: Add Simple bootstrap styling
 
