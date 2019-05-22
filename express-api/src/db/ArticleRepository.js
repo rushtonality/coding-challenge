@@ -22,19 +22,14 @@ const getArticleById = async (id) => {
     }
 }
 
-const getArticleByTitle = async (title) => {
+const getArticlesByTitle = async (title) => {
     const client = await pool.connect();
 
     try {
         let results = await client.query(
             'SELECT * FROM challenge.article WHERE title = $1', 
             [title]);
-        if (results.rowCount > 0) {
-            return results.rows[0];
-        }
-        else {
-            return undefined;
-        }
+        return results.rows;
     } catch (e) {
         throw e
     } finally {
@@ -114,7 +109,7 @@ module.exports = {
     DEFAULT_MAX_RESULT_SIZE,
     getArticles,
     getArticleById,
-    getArticleByTitle,
+    getArticlesByTitle,
     createArticle,
     updateArticle,
     deleteArticle,

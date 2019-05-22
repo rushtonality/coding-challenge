@@ -1,5 +1,4 @@
 const articleRepository = require('../articleRepository.js');
-const pool = require('../pool');
 
 describe('ArticleRepository', () => {
   const testTitle = "My Test Title";
@@ -18,7 +17,8 @@ describe('ArticleRepository', () => {
   });
 
   it('update article', async (done) => {
-    let article = await articleRepository.getArticleByTitle(testTitle);
+    let articles = await articleRepository.getArticlesByTitle(testTitle);
+    let article = articles[0];
     let result = await articleRepository.updateArticle(article.id,
         article.title, article.description, article.author, `${article.tags},tag2`);
 
@@ -27,7 +27,8 @@ describe('ArticleRepository', () => {
   });  
 
   it('delete article', async (done) => {
-    let article = await articleRepository.getArticleByTitle(testTitle);
+    let articles = await articleRepository.getArticlesByTitle(testTitle);
+    let article = articles[0];
     let result = await articleRepository.deleteArticle(article.id);    
     expect(result).toBe(1);
 
@@ -50,14 +51,12 @@ describe('ArticleRepository', () => {
     done();
   });
 
-
-  afterEach(async (done)=> {
-    let article = await articleRepository.getArticleByTitle(testTitle);
-    await articleRepository.deleteArticle(article.id);
-    done();
-  });
-
   afterAll(async (done) => {
+    const results = await articleRepository.getArticlesByTitle(testTitle);
+    for (i = 0; i < results.length; i++) { 
+      await articleRepository.deleteArticle(results[i].id);
+    }
+
     // Closing the DB connection allows Jest to exit successfully.
     await articleRepository.cleanUp();
     done();
