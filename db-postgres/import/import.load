@@ -7,14 +7,14 @@ LOAD CSV
            description,
            author,
            tags,
-           created_at,
-           updated_at
+           created_at_stage,
+           updated_at_stage
         )
    INTO postgresql://{{POSTGRES_USER}}:{{POSTGRES_PASSWORD}}@/{{POSTGRES_DB}}
         TARGET TABLE challenge.article
         TARGET COLUMNS
         (
-           id,title,description,author,tags,created_at,updated_at
+           id,title,description,author,tags,created_at_stage,updated_at_stage
         )
    WITH truncate,
         skip header = 1,
@@ -26,4 +26,20 @@ LOAD CSV
        $$ truncate challenge.article; $$
 
    AFTER LOAD DO
-       $$ SELECT setval('challenge.article_id_seq', COALESCE((SELECT MAX(id)+1 FROM challenge.article), 1), false); $$;
+       $$ SELECT setval('challenge.article_id_seq', COALESCE((SELECT MAX(id)+1 FROM challenge.article), 1), false); $$,
+       $$ update challenge.article
+          set 
+          created_at = 
+               to_date(
+                    LPAD(substring(created_at_stage from '[0-9]+'), 2, '0') || 
+                    LPAD(substring(created_at_stage from '[\.\-/]([0-9]+)'), 2, '0') ||
+                    substring(created_at_stage from '([0-9]+)[\.\-/]*$')
+               ,'MMDDYY'),
+          updated_at = 
+               to_date(
+                    LPAD(substring(updated_at_stage from '[0-9]+'), 2, '0') || 
+                    LPAD(substring(updated_at_stage from '[\.\-/]([0-9]+)'), 2, '0') ||
+                    substring(updated_at_stage from '([0-9]+)[\.\-/]*$')
+               ,'MMDDYY'); $$,
+       $$ ALTER TABLE challenge.article DROP COLUMN created_at_stage; $$,
+       $$ ALTER TABLE challenge.article DROP COLUMN updated_at_stage; $$;
