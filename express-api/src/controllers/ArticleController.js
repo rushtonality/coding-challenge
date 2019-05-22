@@ -51,7 +51,7 @@ const updateArticle = async (req, res, next) => {
     const article = req.body;
 
     await articleService.updateArticle(id, article);
-    res.sendStatus(201);
+    res.sendStatus(204);
     next();
   } catch(e) {
     console.log(e.message);
@@ -64,7 +64,7 @@ const deleteArticle = async (req, res, next) => {
     const id = parseInt(req.params.articleId);
 
     await articleService.deleteArticle(id);
-    res.sendStatus(201);
+    res.sendStatus(204);
     next();
   } catch(e) {
     console.log(e.message);

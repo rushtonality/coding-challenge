@@ -56,7 +56,7 @@
     - At this point I also decided to use Jest as a testing framework, mainly because it is already the default for React projects.
 - TA07: Add Service Layer for data access with tests (complete)
 - TA08: Add Controllers with tests (complete)
-- TA09: Wire together routes and controllers
+- TA09: Wire together routes and controllers (complete)
 - TA10: Add CORS support for Endpoints
 - TA11: Create Skeleton React Project
 - TA12: Adding Routing with empty pages
