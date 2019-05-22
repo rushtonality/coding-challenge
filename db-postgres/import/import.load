@@ -1,0 +1,29 @@
+LOAD CSV
+   FROM 'import.csv'
+        HAVING FIELDS
+        (
+           id,
+           title,
+           description,
+           author,
+           tags,
+           created_at,
+           updated_at
+        )
+   INTO postgresql://{{POSTGRES_USER}}:{{POSTGRES_PASSWORD}}@/{{POSTGRES_DB}}
+        TARGET TABLE challenge.article
+        TARGET COLUMNS
+        (
+           id,title,description,author,tags,created_at,updated_at
+        )
+   WITH truncate,
+        skip header = 1,
+        fields optionally enclosed by '"',
+        fields escaped by double-quote,
+        fields terminated by ','
+
+   BEFORE LOAD DO
+       $$ truncate challenge.article; $$
+
+   AFTER LOAD DO
+       $$ SELECT setval('challenge.article_id_seq', COALESCE((SELECT MAX(id)+1 FROM challenge.article), 1), false); $$;

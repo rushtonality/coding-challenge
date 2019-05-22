@@ -1,0 +1,1 @@
+pgloader /docker-entrypoint-initdb.d/import.load
