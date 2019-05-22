@@ -22,7 +22,7 @@
 - TA09: Wire together routes and controllers (complete)
 - TA10: Add CORS support for Endpoints (complete)
 - TA11: Create Skeleton React Project (complete)
-- TA12: Adding Routing with empty pages
+- TA12: Adding Routing with empty pages (complete)
 - TA13: Add Redux plumbing
 - TA14: Add datatable on landing page
 - TA15: Add links to edit article from datatable
