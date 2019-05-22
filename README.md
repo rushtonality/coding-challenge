@@ -54,7 +54,7 @@
 - TA06: Add database functionality with tests (complete)
     - I decided to do direct database calls instead of using and ORM like Sequelize.
     - At this point I also decided to use Jest as a testing framework, mainly because it is already the default for React projects.
-- TA07: Add Service Layer for data access with tests
+- TA07: Add Service Layer for data access with tests (complete)
 - TA08: Add Controllers with tests
 - TA09: Wire together routes and controllers
 - TA10: Add CORS support for Endpoints
