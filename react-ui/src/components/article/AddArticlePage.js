@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import ArticleForm from "./ArticleForm";
 
-const AddArticlePage = () => (
-    <div>
-        <h2>AddArticlePage</h2>
-    </div>
-);
+class AddArticlePage extends React.Component {
+    
+    submit = values => {
+        console.log(values)
+        this.props.history.push("/");
+    }
 
+    render() {
+        return (
+            <ArticleForm onSubmit={this.submit} />
+        );
+    }
+}
+    
 export default AddArticlePage;

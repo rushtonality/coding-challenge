@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchArticle } from "../../actions/ArticleActions";
+import ArticleForm from "./ArticleForm";
 
 class EditArticlePage extends React.Component {
 
@@ -9,25 +10,28 @@ class EditArticlePage extends React.Component {
         this.props.dispatch(fetchArticle(id));
     }
     
+    submit = values => {
+        console.log(values)
+        this.props.history.push("/");
+    }
+
     render() {
-        const { error, data } = this.props;
+        const {data, loading, error } = this.props;
     
         if (error) {
           return <div>Error! {error.message}</div>;
         }
     
-        if (data) {
-            return (
-            <ul>
-                <li>{data.title}</li>
-            </ul>
-            );
+        if (loading) {
+            return <div>Loading...</div>;
         }
 
-        return <div>Loading...</div>;
+        return (
+            <ArticleForm onSubmit={this.submit} initialValues={data} />
+        );
     }
 }
-
+  
 const mapStateToProps = state => ({
     data: state.article.data,
     loading: state.article.loading,

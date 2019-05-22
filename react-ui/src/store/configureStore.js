@@ -10,7 +10,8 @@ export default () => {
   const store = createStore(
     combineReducers({
       DataTableReducer,
-      article: ArticleReducer
+      article: ArticleReducer,
+      form: formReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
