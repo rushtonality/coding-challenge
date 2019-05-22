@@ -31,6 +31,7 @@
 - TA18: Add Simple token validation for Endpoints
 - TA19: Add Simple token to React side
 - TA20: Add Simple bootstrap styling
+- TA21: Refactor express server testing (complete)
 
 
 

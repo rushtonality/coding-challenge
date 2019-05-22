@@ -1,5 +1,5 @@
-const articleRepository = require('../articleRepository');
-const testDataGenerator = require('../../util/TestDataGenerator');
+const articleRepository = require('./articleRepository');
+const testDataGenerator = require('../util/TestDataGenerator');
 
 const AUTHOR = "ArticleRepository";
 let testRecords = [];
@@ -53,7 +53,7 @@ describe('ArticleRepository', () => {
   });
 
   afterAll(async (done) => {
-    await testDataGenerator.removeTestArticles(AUTHOR);
+    await testDataGenerator.deleteTestArticles(AUTHOR);
 
     // Closing the DB connection allows Jest to exit successfully.
     await articleRepository.cleanUp();

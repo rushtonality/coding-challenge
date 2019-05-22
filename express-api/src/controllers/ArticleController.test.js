@@ -1,6 +1,7 @@
-const articleController = require('../ArticleController.js');
 const httpMocks = require('node-mocks-http');
-const testDataGenerator = require('../../util/TestDataGenerator');
+
+const articleController = require('./ArticleController.js');
+const testDataGenerator = require('../util/TestDataGenerator');
 
 const AUTHOR = "ArticleController";
 let testRecords = [];
@@ -70,7 +71,7 @@ describe('ArticleController', () => {
     let response = httpMocks.createResponse();
 
     await articleController.updateArticle(request, response, () => { });
-    expect(response.statusCode).toBe(201);
+    expect(response.statusCode).toBe(204);
 
     const updatedArticle = await loadArticle(targetArticle.id);
     expect(updatedArticle.id).toBe(targetArticle.id);
@@ -94,7 +95,7 @@ describe('ArticleController', () => {
     let response = httpMocks.createResponse();
 
     await articleController.deleteArticle(request, response, () => { });
-    expect(response.statusCode).toBe(201);
+    expect(response.statusCode).toBe(204);
 
     const deletedArticle = await loadArticle(targetArticle.id);
     expect(deletedArticle).toBeUndefined();
@@ -118,7 +119,7 @@ describe('ArticleController', () => {
   });
 
   afterAll(async (done) => {
-    await testDataGenerator.removeTestArticles(AUTHOR);
+    await testDataGenerator.deleteTestArticles(AUTHOR);
 
     // Closing the DB connection allows Jest to exit successfully.
     await articleController.cleanUp();
