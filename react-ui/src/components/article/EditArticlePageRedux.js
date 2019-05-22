@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Field, reduxForm } from 'redux-form';
 import { fetchArticle } from "../../actions/ArticleActions";
 
-class EditArticlePage extends React.Component {
+class EditArticlePageRedux extends React.Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
@@ -18,9 +19,9 @@ class EditArticlePage extends React.Component {
     
         if (data) {
             return (
-            <ul>
-                <li>{data.title}</li>
-            </ul>
+            <div>
+                <h3>{data.title}</h3>
+            </div>
             );
         }
 
@@ -34,4 +35,4 @@ const mapStateToProps = state => ({
     error: state.article.error
 });
   
-export default connect(mapStateToProps)(EditArticlePage);
+export default connect(mapStateToProps)(EditArticlePageRedux);
