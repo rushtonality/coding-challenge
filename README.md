@@ -38,9 +38,9 @@
 
 
 ## Tasks
-- TA01: Create Empty Project Skeleton
-- TA02: Create Docker container for PostgreSQL database
-- TA03: Load provided CSV file as text to see variation
+- TA01: Create Empty Project Skeleton (complete)
+- TA02: Create Docker container for PostgreSQL (complete)
+- TA03: Load CSV file as text to look for variation (complete)
 - TA04: Add Date Parsing while loading CSV File
 - TA05: Create initial express server with node
 - TA06: Add database functionality with unit tests
