@@ -60,7 +60,6 @@ const getArticles = async () => {
   }
 }
 
-
 const cleanUp = async () => {
   await articleRepository.cleanUp();
 }

@@ -55,19 +55,19 @@
     - I decided to do direct database calls instead of using and ORM like Sequelize.
     - At this point I also decided to use Jest as a testing framework, mainly because it is already the default for React projects.
 - TA07: Add Service Layer for data access with tests (complete)
-- TA08: Add Controllers with tests
+- TA08: Add Controllers with tests (complete)
 - TA09: Wire together routes and controllers
 - TA10: Add CORS support for Endpoints
-- TA12: Create Skeleton React Project
-- TA13: Adding Routing with empty pages
-- TA14: Add Redux plumbing
-- TA15: Add datatable on landing page
-- TA16: Add links to edit article from datatable
-- TA17: Add edit article component
-- TA18: Add add article component
-- TA19: Add Simple token validation for Endpoints
-- TA20: Add Simple token to React side
-- TA21: Add Simple bootstrap styling
+- TA11: Create Skeleton React Project
+- TA12: Adding Routing with empty pages
+- TA13: Add Redux plumbing
+- TA14: Add datatable on landing page
+- TA15: Add links to edit article from datatable
+- TA16: Add edit article component
+- TA17: Add add article component
+- TA18: Add Simple token validation for Endpoints
+- TA19: Add Simple token to React side
+- TA20: Add Simple bootstrap styling
 
 
 

@@ -1,24 +1,25 @@
-const articleRepository = require('../articleRepository.js');
+const articleRepository = require('../articleRepository');
+const testDataGenerator = require('../../util/TestDataGenerator');
+
+const AUTHOR = "ArticleRepository";
+let testRecords = [];
 
 describe('ArticleRepository', () => {
-  const testTitle = "My Test Title";
-  beforeEach(async (done) => {
-    await articleRepository.createArticle(
-      testTitle, "Some Description", "ME", 'good, stuff');
+  beforeAll(async (done) => {
+    testRecords = await testDataGenerator.generateTestArticles(AUTHOR, 10);
     done();
   });
 
   it('create article', async (done) => {
     let result = await articleRepository.createArticle(
-      testTitle, "Some Description", "ME", 'good, stuff');
+      "Test Title", "Some Description", AUTHOR, 'good, stuff');
 
     expect(result).toBe(1);
     done();
   });
 
   it('update article', async (done) => {
-    let articles = await articleRepository.getArticlesByTitle(testTitle);
-    let article = articles[0];
+    let article = testRecords.shift();
     let result = await articleRepository.updateArticle(article.id,
         article.title, article.description, article.author, `${article.tags},tag2`);
 
@@ -27,8 +28,7 @@ describe('ArticleRepository', () => {
   });  
 
   it('delete article', async (done) => {
-    let articles = await articleRepository.getArticlesByTitle(testTitle);
-    let article = articles[0];
+    let article = testRecords.shift();
     let result = await articleRepository.deleteArticle(article.id);    
     expect(result).toBe(1);
 
@@ -38,8 +38,9 @@ describe('ArticleRepository', () => {
   });
 
   it('load article by id', async (done) => {
-    let article = await articleRepository.getArticleById(1);
-    expect(article.id).toBe(1);
+    let article = testRecords.shift();
+    let foundArticle = await articleRepository.getArticleById(article.id);
+    expect(foundArticle.id).toBe(article.id);
     done();
   });
 
@@ -52,10 +53,7 @@ describe('ArticleRepository', () => {
   });
 
   afterAll(async (done) => {
-    const results = await articleRepository.getArticlesByTitle(testTitle);
-    for (i = 0; i < results.length; i++) { 
-      await articleRepository.deleteArticle(results[i].id);
-    }
+    await testDataGenerator.removeTestArticles(AUTHOR);
 
     // Closing the DB connection allows Jest to exit successfully.
     await articleRepository.cleanUp();
