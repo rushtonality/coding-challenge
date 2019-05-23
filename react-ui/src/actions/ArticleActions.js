@@ -1,4 +1,4 @@
-import { handleErrors } from "../utils/HttpUtils"
+import { handleErrors, baseUrl } from "../utils/HttpUtils"
 
 export const FETCH_PRODUCTS_BEGIN   = 'FETCH_PRODUCTS_BEGIN';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
@@ -22,7 +22,7 @@ export function fetchArticle(id) {
     console.log("fetchArticle: ");
     return dispatch => {
       dispatch(fetchArticleBegin());
-      return fetch(`http://localhost:4000/api/article/${id}`)
+      return fetch(`${baseUrl}/article/${id}`)
         .then(handleErrors)
         .then(res => res.json())
         .then(json => {

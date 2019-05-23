@@ -1,11 +1,11 @@
 import React from "react";
 import ArticleForm from "./ArticleForm";
-import { handleErrors } from "../../utils/HttpUtils";
+import { handleErrors, baseUrl } from "../../utils/HttpUtils";
 
 class AddArticlePage extends React.Component {
     
     submit = values => {
-        fetch(`http://localhost:4000/api/article`, {
+        fetch(`${baseUrl}/api/article`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

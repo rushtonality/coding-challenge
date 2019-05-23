@@ -4,3 +4,5 @@ export function handleErrors(response) {
     }
     return response;
 }
+
+export const baseUrl = "http://localhost:4000/api";

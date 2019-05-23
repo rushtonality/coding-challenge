@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchArticle } from "../../actions/ArticleActions";
 import ArticleForm from "./ArticleForm";
-import { handleErrors } from "../../utils/HttpUtils";
+import { handleErrors, baseUrl } from "../../utils/HttpUtils";
 
 class EditArticlePage extends React.Component {
 
@@ -13,7 +13,7 @@ class EditArticlePage extends React.Component {
 
     submit = values => {
         let id = this.props.match.params.id;
-        fetch(`http://localhost:4000/api/article/${id}`, {
+        fetch(`${baseUrl}/article/${id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
