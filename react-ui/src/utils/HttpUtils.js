@@ -5,4 +5,5 @@ export function handleErrors(response) {
     return response;
 }
 
-export const baseUrl = "http://localhost:4000/api";
+export const baseUrl = process.env.API_URL || 'http://localhost:4000/api';
+

@@ -1,5 +1,24 @@
 version: '2'
 services:
+  react-ui:
+    build: ./react-ui
+    ports:
+      - '6300:6300'
+      - '6200:80'
+    environment:
+      - PORT=6200
+      - API_URL=http://localhost:6100/api
+  express-api:
+    build: ./express-api
+    ports:
+      - '6100:6100'
+    environment:
+      - PORT=6100
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=toor
+      - POSTGRES_DB=challenge
+      - POSTGRES_HOST=db-postgres
+      - POSTGRES_PORT=5432
   db-postgres:
     build: ./db-postgres
     ports:

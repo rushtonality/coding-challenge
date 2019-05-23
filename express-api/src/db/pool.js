@@ -7,7 +7,7 @@ const dbUser = process.env.POSTGRES_USER || 'root';
 const dbPassword = process.env.POSTGRES_PASSWORD || 'toor';
 
 const dbName = process.env.POSTGRES_DB || 'challenge';
-const dbHost = process.env.POSTGRES_DB || 'localhost';
+const dbHost = process.env.POSTGRES_HOST || 'localhost';
 const dbPort = process.env.POSTGRES_PORT || 5432;
 
 const pool = new Pool({
