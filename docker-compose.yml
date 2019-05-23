@@ -3,7 +3,7 @@ services:
   react-ui:
     build: ./react-ui
     ports:
-      - '6200:6200'
+      - '6200:80'
     environment:
       - PORT=6200
       - API_URL=http://localhost:6100/api

@@ -1,5 +1,26 @@
 # Coding Challenge
 
+## Instructions to Run
+
+```
+git clone https://github.com/rushtonality/coding-challenge.git
+
+cd coding-challenge
+
+docker-compose build
+
+docker-compose up
+```
+
+Then navigate to http://localhost:6200
+
+## Improvements Needed
+ Clean up npm warnings
+ Better error handling
+ Improved logging in express server
+ 
+
+
 ## Tasks
 - TA01: Create Empty Project Skeleton (complete)    
 - TA02: Create Docker container for PostgreSQL (complete)
@@ -34,3 +55,4 @@
 - TA21: Refactor express server testing (complete)
 - TA22: Dockerize Application (complete)
 - TA23: Form Validation (complete)
+- TA24: Cleanup (complete)
