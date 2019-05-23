@@ -26,7 +26,7 @@ const renderTextArea = ({ input, label, placeholder, type, meta: { touched, erro
 )
 
 let ArticleForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, submitting } = props
 
   return (
     <form className="form-horizontal" onSubmit={handleSubmit}>
