@@ -4,7 +4,6 @@ const getArticles = async (req, res, next) => {
   try {
     const offset = parseInt(req.query.offset);
 
-    console.log("offset: " + offset);
     const articles = await articleService.getArticles(offset);
 
     res.status(200).json(articles);
@@ -52,9 +51,6 @@ const updateArticle = async (req, res, next) => {
   try {
     const id = parseInt(req.params.articleId);
     const article = req.body;
-
-    console.log(updateArticle);
-    console.log(article);
 
     await articleService.updateArticle(id, article);
     res.sendStatus(204);

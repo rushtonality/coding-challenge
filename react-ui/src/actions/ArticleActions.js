@@ -19,7 +19,6 @@ export const fetchArticleFailure = error => ({
 });
 
 export function fetchArticle(id) {
-    console.log("fetchArticle: ");
     return dispatch => {
       dispatch(fetchArticleBegin());
       return fetch(`${baseUrl}/article/${id}`)
@@ -27,7 +26,6 @@ export function fetchArticle(id) {
         .then(res => res.json())
         .then(json => {
           dispatch(fetchArticleSuccess(json));
-          console.log("fetchArticle: " + json);
           return json;
         })
         .catch(error => dispatch(fetchArticleFailure(error)));

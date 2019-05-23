@@ -25,7 +25,6 @@ export const fetchArticleFailure = error => ({
 });
 
 export function fetchArticles(offset, append, filter) {
-    console.log("fetchArticles: ");
     return dispatch => {
       dispatch(fetchArticleBegin());
       var url = new URL(`${baseUrl}/article`),
@@ -42,7 +41,6 @@ export function fetchArticles(offset, append, filter) {
           else {
             dispatch(fetchArticleReplace(json));
           }          
-          console.log("fetchArticle: " + json);
           return json;
         })
         .catch(error => dispatch(fetchArticleFailure(error)));

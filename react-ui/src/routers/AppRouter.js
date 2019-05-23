@@ -16,8 +16,8 @@ const AppRouter = () => (
             <div className="container-fluid">
                 <Switch>
                     <Route path="/" component={LandingPage} exact={true} />
-                    <Route path="/article/edit/:id" component={EditArticlePage} />
                     <Route path="/article/add" component={AddArticlePage} />
+                    <Route path="/article/edit/:id" component={EditArticlePage} />
                 </Switch>
             </div>
 
