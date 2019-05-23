@@ -5,49 +5,49 @@ let ArticleForm = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="form-group">
         <label htmlFor="title">Title</label>
         <div>
-        <Field name="title" component="input" type="text" />
+        <Field className="form-control" name="title" component="input" type="text" />
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label htmlFor="author">Author</label>
         <div>
-        <Field name="author" component="input" type="text" />
+        <Field className="form-control" name="author" component="input" type="text" />
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label htmlFor="tags">Tags</label>
         <div>
-          <Field name="tags" component="input" type="text"/>
+          <Field className="form-control" name="tags" component="input" type="text"/>
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label htmlFor="description">Description</label>
         <div>
-          <Field name="description" component="textarea"/>
+          <Field className="form-control" name="description" component="textarea"/>
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label htmlFor="created_at">Created</label>
         <div>
-          <Field name="created_at" component="input" type="text"/>
+          <Field readonly="true" className="form-control" name="created_at" component="input" type="text"/>
         </div>
       </div>
 
-      <div>
+      <div className="form-group">
         <label htmlFor="updated_at">Updated</label>
         <div>
-          <Field name="updated_at" component="input" type="text"/>
+          <Field readonly="true" className="form-control" name="updated_at" component="input" type="text"/>
         </div>
       </div>
 
-      <button type="submit">Submit</button>
+      <button className="btn btn-secondary" type="submit">Submit</button>
     </form>
   )
 }

@@ -9,7 +9,7 @@ export const history = createBrowserHistory();
 
 const AppRouter = () => (
     <Router history={history}>
-        <div className="App">
+        <div className="container">
             <header className="App-header">
                 <h1>Coding Challenge</h1>
             </header>

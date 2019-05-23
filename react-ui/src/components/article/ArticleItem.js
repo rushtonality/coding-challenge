@@ -9,7 +9,7 @@ class ArticleItem extends React.Component {
             <h2>
             {this.props.article.title}
             &nbsp;
-            <Link to={`/article/edit/${this.props.article.id}`}>Edit</Link>
+            <Link className="btn btn-primary" to={`/article/edit/${this.props.article.id}`}>Edit</Link>
             </h2>
 
             <div className="preformatted">
