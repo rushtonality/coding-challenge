@@ -13,6 +13,24 @@ const getArticles = async (req, res, next) => {
   }
 }
 
+const getArticleTable = async (req, res, next) => {  
+  try {
+    const articles = await articleService.getArticles();
+
+    res.status(200).json(
+      {
+      "searchSuccess": true,
+      "dataTotalSize": articles.length,
+      "data": articles
+      }, 200);
+  
+    next();
+  } catch(e) {
+    console.log(e.message);
+    res.sendStatus(500) && next(error);
+  }
+}
+
 const getArticle = async (req, res, next) => {  
   try {
     const id = parseInt(req.params.articleId);
@@ -79,6 +97,7 @@ const cleanUp = async () => {
 module.exports = {
   getArticle,
   getArticles,
+  getArticleTable,
   createArticle,
   updateArticle,
   deleteArticle,

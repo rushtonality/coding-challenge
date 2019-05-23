@@ -5,6 +5,9 @@ const articleController = require('../controllers/ArticleController');
 // Get List of Articles
 router.get('/', articleController.getArticles);
 
+// Get Table of Articles
+router.post('/table', articleController.getArticleTable);
+
 // Create Article
 router.post('/', articleController.createArticle)
 
