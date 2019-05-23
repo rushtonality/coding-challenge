@@ -27,7 +27,7 @@ class ArticleList extends React.Component {
                     <ArticleItem key={index} article={article} />
                 ))
             }
-            <button onClick={this.onClickMore.bind(this)}>More</button>
+            <button className="btn btn-outline-secondary btn-block"  onClick={this.onClickMore.bind(this)}>More</button>
             </div> 
         )
     }

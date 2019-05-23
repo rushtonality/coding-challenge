@@ -5,9 +5,6 @@ import ArticleList from './article/ArticleList';
 
 const LandingPage = () => (
     <div className="container-fluid">
-        <h2>
-            <Link to="/article/add">Add Article</Link>
-        </h2>
         <ArticleList />
     </div>
 );

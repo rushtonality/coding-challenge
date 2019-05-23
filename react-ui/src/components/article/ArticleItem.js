@@ -8,11 +8,10 @@ class ArticleItem extends React.Component {
         <div>
             <h2>
             {this.props.article.title}
-            &nbsp;
-            <Link className="btn btn-primary" to={`/article/edit/${this.props.article.id}`}>Edit</Link>
             </h2>
+            <Link className="btn btn-secondary" to={`/article/edit/${this.props.article.id}`}>Edit</Link>
 
-            <div className="preformatted">
+            <div className="preformatted m-4">
                 {this.props.article.description}
             </div>
         </div>

@@ -4,23 +4,26 @@ import { createBrowserHistory } from 'history';
 import EditArticlePage from '../components/article/EditArticlePage';
 import AddArticlePage from '../components/article/AddArticlePage';
 import LandingPage from '../components/LandingPage';
+import Header from "../components/Header";
 
 export const history = createBrowserHistory();
 
 const AppRouter = () => (
     <Router history={history}>
         <div className="container">
-            <header className="App-header">
-                <h1>Coding Challenge</h1>
-            </header>
+            <Header />
 
-            <div>
+            <div className="container-fluid">
                 <Switch>
                     <Route path="/" component={LandingPage} exact={true} />
                     <Route path="/article/edit/:id" component={EditArticlePage} />
                     <Route path="/article/add" component={AddArticlePage} />
                 </Switch>
             </div>
+
+            <footer className="container-fluid">
+                
+            </footer>
         </div>
     </Router>
 );
