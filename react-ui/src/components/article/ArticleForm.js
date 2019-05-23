@@ -20,7 +20,14 @@ let ArticleForm = props => {
       </div>
 
       <div>
-        <label htmlFor="author">Description</label>
+        <label htmlFor="tags">Tags</label>
+        <div>
+          <Field name="tags" component="input" type="text"/>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="description">Description</label>
         <div>
           <Field name="description" component="textarea"/>
         </div>

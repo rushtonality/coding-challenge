@@ -5,12 +5,12 @@ import ArticleItem from "./ArticleItem";
 
 class ArticleList extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchArticles(0));        
+        this.props.dispatch(fetchArticles());        
     }
 
     onClickMore() {
         this.props.dispatch(
-            fetchArticles(this.props.articles.length));        
+            fetchArticles(this.props.articles.length + 1, true));        
     }
 
     render() {

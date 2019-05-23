@@ -26,8 +26,8 @@
 - TA13: Add Redux plumbing (complete)
 - TA14: Add article listing on landing page (complete)
 - TA15: Add links to edit article from listing
-- TA16: Add edit article component
-- TA17: Add add article component
+- TA16: Add edit article component (complete)
+- TA17: Add add article component (complete)
 - TA18: Add Simple token validation for Endpoints
 - TA19: Add Simple token to React side
 - TA20: Add Simple bootstrap styling

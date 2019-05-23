@@ -8,7 +8,6 @@ const getArticles = async (req, res, next) => {
     const articles = await articleService.getArticles(offset);
 
     res.status(200).json(articles);
-    // res.json(articles, 200);
 
     next();
   } catch(e) {
@@ -53,6 +52,9 @@ const updateArticle = async (req, res, next) => {
   try {
     const id = parseInt(req.params.articleId);
     const article = req.body;
+
+    console.log(updateArticle);
+    console.log(article);
 
     await articleService.updateArticle(id, article);
     res.sendStatus(204);

@@ -5,23 +5,11 @@ import ArticleList from './article/ArticleList';
 
 const LandingPage = () => (
     <div className="container-fluid">
+        <h2>
+            <Link to="/article/add">Add Article</Link>
+        </h2>
         <ArticleList />
     </div>
 );
-
-// const LandingPage = () => (
-//     <div>
-//         <ArticleTable />
-//         <ul>
-//             <li>
-//             <Link to="/article/edit/1">Article 1</Link>
-//             </li>
-//             <li>
-//             <Link to="/article/add">Add</Link>
-//             </li>
-//         </ul>
-        
-//     </div>
-// );
 
 export default LandingPage;

@@ -22,7 +22,7 @@ export const fetchArticleFailure = error => ({
   payload: { error }
 });
 
-export function fetchArticles(offset, filter) {
+export function fetchArticles(offset, append, filter) {
     console.log("fetchArticles: ");
     return dispatch => {
       dispatch(fetchArticleBegin());
@@ -34,7 +34,12 @@ export function fetchArticles(offset, filter) {
         .then(handleErrors)
         .then(res => res.json())
         .then(json => {
-          dispatch(fetchArticleAppend(json));
+          if (append) {
+            dispatch(fetchArticleAppend(json));
+          }
+          else {
+            dispatch(fetchArticleReplace(json));
+          }          
           console.log("fetchArticle: " + json);
           return json;
         })
