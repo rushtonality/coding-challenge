@@ -13,6 +13,8 @@ COPY ./ /react-ui
 
 WORKDIR /react-ui
 
+RUN npm install
+
 RUN yarn build
 
 RUN rm -rf /usr/local/apache2/htdocs/*
