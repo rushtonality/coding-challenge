@@ -5,7 +5,7 @@ import { handleErrors, baseUrl } from "../../utils/HttpUtils";
 class AddArticlePage extends React.Component {
     
     submit = values => {
-        fetch(`${baseUrl}/api/article`, {
+        fetch(`${baseUrl}/article`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -14,7 +14,7 @@ class AddArticlePage extends React.Component {
         })
             .then(handleErrors)
             .then(res => {
-                this.props.history.push("/", {});
+                this.props.history.push("/");
             })
             .catch(error => console.log(error));
     }

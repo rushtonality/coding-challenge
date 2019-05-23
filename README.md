@@ -30,6 +30,7 @@
 - TA17: Add add article component (complete)
 - TA18: Add Simple token validation for Endpoints
 - TA19: Add Simple token to React side
-- TA20: Add Simple bootstrap styling
+- TA20: Add Simple bootstrap styling (complete)
 - TA21: Refactor express server testing (complete)
 - TA22: Dockerize Application (complete)
+- TA23: Form Validation (complete)
