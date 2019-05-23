@@ -2,7 +2,9 @@
 
 ## Instructions to Run
 
-```
+To minimize issues running this on different machines. PostgreSQL configuration is not trivial and I am using pgload to load the data. I decided to use docker and docker-compose to build the components of this project to minimize environment issues.  
+
+```bash
 git clone https://github.com/rushtonality/coding-challenge.git
 
 cd coding-challenge
@@ -12,14 +14,23 @@ docker-compose build
 docker-compose up
 ```
 
+The build command above will take a while.
+
 Then navigate to http://localhost:6200
 
-## Improvements Needed
- Clean up npm warnings
- Better error handling
- Improved logging in express server
- 
+To remove the containers, hit CTRL-C to stop the containers. and then run the following in the same directory as above. 
 
+```bash
+docker-compose down
+```
+
+## Things not completed
+ - Clean up npm warnings
+ - Better error handling
+ - Improved logging in express server
+ - Add basic token security for services
+ - Add date handling
+ - Add filtering
 
 ## Tasks
 - TA01: Create Empty Project Skeleton (complete)    
