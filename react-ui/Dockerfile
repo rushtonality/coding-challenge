@@ -1,7 +1,5 @@
 FROM httpd:2.4
 
-COPY ./ /react-ui
-
 RUN apt-get update -y && apt-get install -y \
     curl 
 
@@ -11,8 +9,12 @@ RUN apt-get -y install build-essential nodejs
 
 RUN npm install yarn -g
 
+COPY ./ /react-ui
+
 WORKDIR /react-ui
 
 RUN yarn build
+
+RUN rm -rf /usr/local/apache2/htdocs/*
 
 RUN cp -a build/* /usr/local/apache2/htdocs/ 

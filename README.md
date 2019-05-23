@@ -32,4 +32,4 @@
 - TA19: Add Simple token to React side
 - TA20: Add Simple bootstrap styling
 - TA21: Refactor express server testing (complete)
-- TA22: Dockerize Application
+- TA22: Dockerize Application (complete)
