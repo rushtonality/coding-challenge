@@ -11,3 +11,9 @@
 .App-link {
   color: #61dafb;
 }
+
+.preformatted {
+  width: 100%;
+  white-space: pre-wrap;
+  overflow: auto;
+}

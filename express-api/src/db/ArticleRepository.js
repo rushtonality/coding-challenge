@@ -1,6 +1,6 @@
 const pool = require('./pool');
 
-const DEFAULT_MAX_RESULT_SIZE = 20;
+const DEFAULT_MAX_RESULT_SIZE = 5;
 
 const getArticleById = async (id) => {
     const client = await pool.connect();
@@ -37,10 +37,19 @@ const getArticlesByTitle = async (title) => {
     }
 }
 
-const getArticles = async () => {
-    let results = await pool.query(
-        'SELECT * FROM challenge.article ' +
-        'ORDER BY id ASC LIMIT $1', [DEFAULT_MAX_RESULT_SIZE]);
+const getArticles = async (offset, filter) => {
+    let queryString = 
+        'SELECT * FROM challenge.article ORDER BY id DESC';
+    let queryParams = [];
+
+    queryString += " LIMIT $1";
+    queryParams.push(DEFAULT_MAX_RESULT_SIZE);
+    
+    if (offset) {
+        queryString += " OFFSET $2"
+        queryParams.push(offset);
+    }
+    let results = await pool.query(queryString, queryParams);
 
     return results.rows;
 };

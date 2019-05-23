@@ -24,8 +24,8 @@
 - TA11: Create Skeleton React Project (complete)
 - TA12: Adding Routing with empty pages (complete)
 - TA13: Add Redux plumbing (complete)
-- TA14: Add datatable on landing page
-- TA15: Add links to edit article from datatable
+- TA14: Add article listing on landing page (complete)
+- TA15: Add links to edit article from listing
 - TA16: Add edit article component
 - TA17: Add add article component
 - TA18: Add Simple token validation for Endpoints

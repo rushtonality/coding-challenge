@@ -2,28 +2,14 @@ const articleService = require('../services/ArticleService')
 
 const getArticles = async (req, res, next) => {  
   try {
-    const articles = await articleService.getArticles();
+    const offset = parseInt(req.query.offset);
 
-    res.json(articles, 200);
+    console.log("offset: " + offset);
+    const articles = await articleService.getArticles(offset);
 
-    next();
-  } catch(e) {
-    console.log(e.message);
-    res.sendStatus(500) && next(error);
-  }
-}
+    res.status(200).json(articles);
+    // res.json(articles, 200);
 
-const getArticleTable = async (req, res, next) => {  
-  try {
-    const articles = await articleService.getArticles();
-
-    res.status(200).json(
-      {
-      "searchSuccess": true,
-      "dataTotalSize": articles.length,
-      "data": articles
-      }, 200);
-  
     next();
   } catch(e) {
     console.log(e.message);
@@ -97,7 +83,6 @@ const cleanUp = async () => {
 module.exports = {
   getArticle,
   getArticles,
-  getArticleTable,
   createArticle,
   updateArticle,
   deleteArticle,

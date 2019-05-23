@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import ArticleDataTable from './ArticleDataTable';
+import ArticleList from './article/ArticleList';
 
 const LandingPage = () => (
     <div className="container-fluid">
-        <ArticleDataTable />
+        <ArticleList />
     </div>
 );
 

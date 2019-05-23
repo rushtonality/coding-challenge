@@ -52,9 +52,9 @@ const deleteArticle = async (id) => {
   }
 }
 
-const getArticles = async () => {
+const getArticles = async (offset, filter) => {
   try {
-    return await articleRepository.getArticles();
+    return await articleRepository.getArticles(offset, filter);
   } catch (e) {
     throw new Error(e.message)
   }
