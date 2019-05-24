@@ -25,12 +25,13 @@ docker-compose down
 ```
 
 ## Things not completed
- - Clean up npm warnings
- - Better error handling
- - Improved logging in express server
- - Add basic token security for services
- - Add date handling
- - Add filtering
+- React Unit Testing
+- Clean up npm warnings
+- Better error handling
+- Improved logging in express server
+- Add basic token security for services
+- Add date handling
+- Add filtering
 
 ## Tasks
 - TA01: Create Empty Project Skeleton (complete)    
@@ -67,3 +68,4 @@ docker-compose down
 - TA22: Dockerize Application (complete)
 - TA23: Form Validation (complete)
 - TA24: Cleanup (complete)
+- TA25: React testing
